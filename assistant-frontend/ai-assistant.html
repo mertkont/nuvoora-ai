@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-robot"></i>
+            <span>AI Assistant</span>
+        </div>
+        <div class="menu">
+            <div class="menu-item active" data-section="home">Home</div>
+            <div class="menu-item" data-section="services">Services</div>
+            <div class="menu-item" data-section="about">About</div>
+            <div class="menu-item" data-section="contact">Contact</div>
+        </div>
+        <div class="user-info">
+            <!-- AI Chat button in Navbar -->
+            <div id="aiChatButton" class="ai-in-page">
+                <i class="fas fa-robot" class="ai-in-page-show"></i>
+                <span style="font-weight: 500;">Talk With Nuvoora AI</span>
+            </div>
+            <button class="login-btn" id="loginButton">Login</button>
+            <button class="logout-btn" id="logoutButton" style="display: none;">Logout</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Home Section -->
+        <div class="section active" id="home">
+            <div class="welcome-message">
+                <h1>Welcome to AI Assistant!</h1>
+                <p>Our AI-powered assistant is here to help you. Click on the "Talk With Nuvoora AI" in the top menu to start chatting with our assistant.</p>
+                <p>Please log in for our assistant to provide you with better service.</p>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="section" id="services">
+            <div class="welcome-message">
+                <h1>Our Services</h1>
+                <p>Our AI Assistant can help you with the following:</p>
+                <ul style="margin-top: 1rem; margin-left: 1.5rem;">
+                    <li>Quick information access</li>
+                    <li>Instant answers to your questions</li>
+                    <li>Help with daily tasks</li>
+                    <li>Suggestions and recommendations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="section" id="about">
+            <div class="welcome-message">
+                <h1>About Us</h1>
+                <p>We are an innovative team aiming to simplify daily life by providing users with the most advanced artificial intelligence technologies.</p>
+                <p>Our goal is to make AI assistants easily accessible to everyone and to enhance the user experience to the highest level.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section" id="contact">
+            <div class="welcome-message">
+                <h1>Contact</h1>
+                <p>You can reach us with the following contact information:</p>
+                <div style="margin-top: 1rem;">
+                    <p><i class="fas fa-envelope" style="margin-right: 0.5rem;"></i> info@aiassistant.com</p>
+                    <p><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> +1 555 123 4567</p>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> Tech Valley, San Francisco</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chat Container -->
+    <div class="ai-chat-container" id="aiChatContainer">
+        <div class="ai-chat-header" id="aiChatHeader">
+            <h3>
+                <i class="fas fa-robot" style="font-size: 24px; margin-right: 10px; color: #4a6bff;"></i>
+                Talk With Nuvoora AI
+            </h3>
+            <button class="ai-close-button" id="aiCloseButton">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-chat-messages" id="aiChatMessages">
+            <!-- Messages will be added here -->
+        </div>
+        <div class="ai-chat-input-container">
+            <div class="quick-replies" id="quickReplies">
+                <div class="quick-reply">Hello</div>
+                <div class="quick-reply">Help</div>
+                <div class="quick-reply">How does it work?</div>
+            </div>
+            <form class="ai-chat-form" id="aiChatForm">
+                <div class="input-wrapper">
+                    <input type="text" maxlength="1000" class="ai-chat-input" id="aiChatInput"
+                        placeholder="Type your message..." autocomplete="off">
+                    <div id="char-count">0 / 1000</div>
+                </div>
+                <button type="submit" class="ai-send-button" id="aiSendButton">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- AI Notification -->
+    <div class="ai-notification" id="aiNotification">
+        <div class="ai-notification-message">
+            <i class="fas fa-robot" style="font-size: 40px; margin-right: 15px; color: #4a6bff;"></i>
+            <div class="ai-notification-content">
+                <p id="notificationText">Hello! How can I help you today?</p>
+                <div class="ai-notification-buttons">
+                    <button class="ai-notification-btn ai-notification-open" id="notificationOpen">Open Chat</button>
+                    <button class="ai-notification-btn ai-notification-dismiss" id="notificationDismiss">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="apiKey">API Key</label>
+                    <input type="password" class="form-control" id="apiKey" required>
+                </div>
+                <button type="submit" class="form-submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
