@@ -19,3 +19,6 @@ USER_TOKEN = "..."
 
 # Model that is using
 USING_MODEL = "your-model"
+
+# API key for the using model
+API_KEY = "..."
