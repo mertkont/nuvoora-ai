@@ -4,6 +4,7 @@ from typing import List, Dict
 from app.core.interfaces import AIModelInterface
 from app.services.ollama_client import OllamaClient
 from app.utils.prompt_formatter import GemmaPromptFormatter, ChatMLPromptFormatter
+from app.core.config import API_KEY
 import google.generativeai as genai
 
 class GemmaModel(AIModelInterface):
@@ -63,7 +64,7 @@ class GPTModel(AIModelInterface):
         import openai
 
         try:
-            client = openai.AsyncOpenAI(api_key="your-api-key")
+            client = openai.AsyncOpenAI(api_key=API_KEY)
             # OpenAI accepts this response type
             response = await client.chat.completions.create(
                 model=self.model_name,
@@ -82,7 +83,7 @@ class GeminiModel(AIModelInterface):
     def __init__(self, model_name="gemini-2.0-flash-001"):
         self.model_name = model_name
         self.formatter = ChatMLPromptFormatter()
-        genai.configure(api_key="your-api-key")
+        genai.configure(api_key=API_KEY)
         self.model = genai.GenerativeModel(model_name=self.model_name)
 
     async def generate_response(self, messages: List[Dict[str, str]]) -> str:
