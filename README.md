@@ -48,21 +48,46 @@ app/
 
 ## 🚀 Getting Started
 
-1. Install the required packages:
+1. Decide for the model to use in the project and continue
+
+#### &emsp;2. 🚀 Using Ollama
+
+&emsp;&emsp;2.1. For <code>Ollama</code>, visit [Ollama Download Page](https://ollama.com/download) and download
+
+&emsp;&emsp;2.2.  After downloading Ollama, run these commands:
+
+     ```bash
+     ollama pull gemma3
+     ollama run gemma3
+     ```
+
+&emsp;&emsp;2.3. From the config file, change <code>USING_MODEL</code> variable to "gemma3"
+
+&emsp;&emsp;2.4. Find your localhost Ollama URL and change <code>OLLAMA_URL</code> variable 
+
+#### &emsp;2. 🚀 Using Gemini, ChatGPT or Another Model
+
+&emsp;&emsp;2.1. Get your API key for the model that is using
+
+&emsp;&emsp;2.2. Depending on the model connected, get your key from [Gemini API Key](https://ai.google.dev/gemini-api/docs/api-key) or [ChatGPT API Key](https://platform.openai.com/api-keys) (or create a new model and get its API key)
+
+&emsp;&emsp;2.3. Change API_KEY variable from the config file
+
+3. Install the required packages:
    
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Start the application:
+4. Start the application:
 
    ```bash
    uvicorn main:app --reload
    ```
    
-3. Connect the uvicorn URL with Swagger UI (generally it is like that: http://0.0.0.0:xxxx/docs)
+5. Connect the uvicorn URL with Swagger UI (generally it is like that: http://0.0.0.0:xxxx/docs)
 
-4. Submit your questions and get answers with the token.
+6. Submit your questions and get answers with the token.
 
 ## 📌 About the Layers
 
