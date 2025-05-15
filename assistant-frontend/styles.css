@@ -548,7 +548,7 @@ body {
 /* AI Notification */
 .ai-notification {
     position: fixed;
-    bottom: 7rem;
+    bottom: 2rem;
     right: 2rem;
     background-color: var(--card-bg);
     padding: 1rem;
@@ -630,22 +630,22 @@ body {
     align-items: center;
     margin-right: 15px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    transition: all 0.3s ease; /* Geçiş efekti ekledik */
+    transition: all 0.3s ease;
 }
 
 [data-theme="dark"] .ai-in-page {
-    background: linear-gradient(135deg, #1f2937 0%, #374151 100%); /* Dark tema gradient */
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
 }
 
 .ai-in-page-show {
     font-size: 24px;
     margin-right: 5px;
     color: #4a6bff;
-    transition: color 0.3s ease; /* Renk geçiş efekti */
+    transition: color 0.3s ease;
 }
 
 [data-theme="dark"] .ai-in-page-show {
-    color: #818cf8; /* Dark tema ikon rengi (veya light renk isterseniz #f3f4f6) */
+    color: #818cf8;
 }
 
 /* Loading indicator */
