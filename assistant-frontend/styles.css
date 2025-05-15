@@ -462,6 +462,37 @@ body {
     cursor: not-allowed;
 }
 
+.navbar-ai-chat {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-ai-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    border-radius: 20px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-ai-button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.navbar-ai-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
 /* Login Modal */
 .modal-overlay {
     position: fixed;
@@ -622,30 +653,6 @@ body {
 
 .ai-notification-dismiss:hover {
     background-color: var(--ai-message-bg);
-}
-
-.ai-in-page {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin-right: 15px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    transition: all 0.3s ease;
-}
-
-[data-theme="dark"] .ai-in-page {
-    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
-}
-
-.ai-in-page-show {
-    font-size: 24px;
-    margin-right: 5px;
-    color: #4a6bff;
-    transition: color 0.3s ease;
-}
-
-[data-theme="dark"] .ai-in-page-show {
-    color: #818cf8;
 }
 
 /* Loading indicator */
